@@ -23,18 +23,24 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
 #include "AppWindow.h"
-
+#include "Render.h"
 
 
 int main()
 {
 	AppWindow app;
-	if (app.init())
+
+	if (!app.init())
 	{
-		while (app.isRun())
-		{
-			app.broadcast();
-		}
+		return -1;
+	}
+
+	Render render(&app);
+	
+
+	while (app.isRun())
+	{
+		app.broadcast();
 	}
 
 

@@ -37,6 +37,8 @@ int main()
 
 	Render render(&app);
 	
+	render.ClearWindow(0xFF0000);
+	render.DrawRechtangle(500, 500, 200, 200, 0x00FF00);
 
 	while (app.isRun())
 	{

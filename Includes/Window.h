@@ -30,6 +30,8 @@ SOFTWARE.*/
 class Window
 {
 public:
+	void* buffer_memory = NULL;
+	
 	Window();
 	//Initialize the window
 	bool init();
@@ -44,13 +46,14 @@ public:
 	virtual void onDestroy();
 	void onResize(HWND hwnd);
 
+	int getWindowWidth();
+	int getWindowHeight();
 
 	~Window();
 protected:
 	HWND m_hwnd;
 	bool m_is_run;
 	BITMAPINFO buffer_bitmap_info;
-	void* buffer_memory = NULL;
 	int buffer_width = 0;
 	int buffer_height = 0;
 	HDC hdc;

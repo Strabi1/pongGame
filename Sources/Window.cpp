@@ -132,15 +132,15 @@ bool Window::broadcast()
 		DispatchMessage(&msg);
 	}
 
-	unsigned int *pixel = (unsigned int*)buffer_memory;
-
-	for(int y = 0; y < buffer_height; y++)
-	{
-		for(int x = 0; x < buffer_width; x++)
-		{
-			*pixel++ = x*y;
-		}
-	}
+	//unsigned int *pixel = (unsigned int*)buffer_memory;
+	//
+	// for(int y = 0; y < buffer_height; y++)
+	// {
+	// 	for(int x = 0; x < buffer_width; x++)
+	// 	{
+	// 		*pixel++ = x*y;
+	// 	}
+	// }
 	
 
 	// Render
@@ -206,6 +206,16 @@ void Window::onResize(HWND hwnd)
 	buffer_bitmap_info.bmiHeader.biBitCount = 32;
 	buffer_bitmap_info.bmiHeader.biCompression = BI_RGB;
 	
+}
+
+int Window::getWindowWidth()
+{
+	return buffer_width;
+}
+
+int Window::getWindowHeight()
+{
+	return buffer_height;
 }
 
 Window::~Window()

@@ -42,11 +42,17 @@ public:
 	virtual void onCreate();
 	virtual void onUpdate();
 	virtual void onDestroy();
+	void onResize(HWND hwnd);
 
 
 	~Window();
 protected:
 	HWND m_hwnd;
 	bool m_is_run;
+	BITMAPINFO buffer_bitmap_info;
+	void* buffer_memory = NULL;
+	int buffer_width = 0;
+	int buffer_height = 0;
+	HDC hdc;
 };
 

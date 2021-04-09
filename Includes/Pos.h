@@ -7,9 +7,10 @@ class Pos
 private:
 	
 protected:
-	UINT32 x = 0, y = 0;
 
 public:
+	UINT32 x = 0, y = 0;
+
 	Pos();
 	Pos(UINT32 x, UINT32 y);
 	~Pos();

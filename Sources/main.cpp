@@ -24,7 +24,9 @@ SOFTWARE.*/
 
 #include "AppWindow.h"
 #include "Draw.h"
-#include "Game.h"
+//#include "Game.h"
+//#include "Game/Ball.h"
+#include "Ball.h"
 #include <stdio.h>
 
 int main()
@@ -37,13 +39,19 @@ int main()
 	}
 
 	Draw draw(&app);
-	Game game();
+	//Game game();
+	Ball ball(Pos(100,100));
+
 	
 	printf("Window->height: %d, Window->width: %d\n", app.getWindowHeight(), app.getWindowWidth());
 	while (app.isRun())
 	{
 		draw.ClearWindow(0xFF0000);
 		draw.MakeBorder(10, 0x00FF11);
+
+
+		draw.DrawRechtangle(ball.pos.x, ball.pos.y, ball.size, ball.size, 0x00FF33);
+
 		app.broadcast();
 	}
 

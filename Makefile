@@ -14,7 +14,7 @@ OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_FILES))
 LDFLAGS := 
 CPPFLAGS :=
 CXXFLAGS :=
-INC := -I./Includes
+INC := -I./Includes -I./Includes/Game
 LIBS := -lgdi32
 
 RM := rd /s /q

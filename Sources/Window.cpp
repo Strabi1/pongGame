@@ -99,7 +99,7 @@ bool Window::init()
 		window = this;*/
 
 	//Creation of the window
-	m_hwnd=::CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, "MyWindowClass", "DirectX Application", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 1024, 768,
+	m_hwnd=::CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, "MyWindowClass", "DirectX Application", WS_OVERLAPPEDWINDOW & (~ WS_THICKFRAME), CW_USEDEFAULT, CW_USEDEFAULT, 1366, 768,
 		NULL, NULL, NULL, this);
 
 	//if the creation fail return false

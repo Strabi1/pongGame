@@ -19,8 +19,7 @@ Render::Render(Window *wnd)
 
 void Render::DrawRechtangle(UINT32 x, UINT32 y, UINT32 h, UINT32 w, UINT32 color)
 {
-	float x_mult, y_mult;
-	float x_start, x_stop, y_start, y_stop;
+	UINT32 x_start, x_stop, y_start, y_stop;
 
 	// x_mult = window->getWindowWidth() /  MAX_LOGICAL_WIDTH;
 	// y_mult = window->getWindowHeight() /  MAX_LOGICAL_HEIGHT;
@@ -40,10 +39,14 @@ void Render::DrawRechtangle(UINT32 x, UINT32 y, UINT32 h, UINT32 w, UINT32 color
 	y_start = y - h/2;
 	y_stop = y + h/2;
 
-	x_start = CONSTRAIN(x_start, 0, window->getWindowWidth()-1);
-	x_stop = CONSTRAIN(x_stop, 0, window->getWindowWidth()-1);
-	y_start = CONSTRAIN(y_start, 0, window->getWindowWidth()-1);
-	y_stop = CONSTRAIN(y_stop, 0, window->getWindowWidth()-1);
+	printf("x_start: %d, x_stop: %d, y_start: %d, y_stop: %d\n", x_start, x_stop, y_start, y_stop);
+
+	x_start = CONSTRAIN(x_start, 0, window->getWindowWidth());
+	x_stop = CONSTRAIN(x_stop, 0, window->getWindowWidth());
+	y_start = CONSTRAIN(y_start, 0, window->getWindowHeight());
+	y_stop = CONSTRAIN(y_stop, 0, window->getWindowHeight());
+
+	printf("x_start: %d, x_stop: %d, y_start: %d, y_stop: %d\n", x_start, x_stop, y_start, y_stop);
 
 
 	UINT32* pixel = (UINT32*)window->buffer_memory;

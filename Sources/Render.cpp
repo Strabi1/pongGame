@@ -1,6 +1,7 @@
 
 #include "Render.h"
 #include <math.h>
+#include <stdio.h>
 
 /*
 *	A kepernyofelbontas le lett skalazva 160 x 90 -re
@@ -37,7 +38,12 @@ void Render::DrawRechtangle(UINT32 x, UINT32 y, UINT32 h, UINT32 w, UINT32 color
 	x_start = x - w/2;
 	x_stop = x + w/2;
 	y_start = y - h/2;
-	y_stop = y +h/2;
+	y_stop = y + h/2;
+
+	x_start = CONSTRAIN(x_start, 0, window->getWindowWidth()-1);
+	x_stop = CONSTRAIN(x_stop, 0, window->getWindowWidth()-1);
+	y_start = CONSTRAIN(y_start, 0, window->getWindowWidth()-1);
+	y_stop = CONSTRAIN(y_stop, 0, window->getWindowWidth()-1);
 
 
 	UINT32* pixel = (UINT32*)window->buffer_memory;
@@ -45,12 +51,6 @@ void Render::DrawRechtangle(UINT32 x, UINT32 y, UINT32 h, UINT32 w, UINT32 color
 	{
 		for(UINT32 x = x_start; x <= x_stop; x++)
 		{
-			//window->buffer_memory[y][x] = color;
-			//(UINT32*)(window->buffer_memory) = color;
-
-			x = CONSTRAIN(x, 0, window->getWindowWidth());
-			y = CONSTRAIN(y, 0, window->getWindowHeight());
-
 			*(pixel + y * window->getWindowWidth() + x) = color;
 		}
 	}

@@ -24,6 +24,7 @@ SOFTWARE.*/
 
 #include "AppWindow.h"
 #include "Draw.h"
+#include "Game.h"
 #include <stdio.h>
 
 int main()
@@ -36,6 +37,7 @@ int main()
 	}
 
 	Draw draw(&app);
+	Game game();
 	
 	printf("Window->height: %d, Window->width: %d\n", app.getWindowHeight(), app.getWindowWidth());
 	while (app.isRun())

@@ -24,49 +24,46 @@ SOFTWARE.*/
 
 #include "Window.h"
 
-//Window* window=nullptr;
-
 Window::Window()
-{
-	
+{	
 }
 
+Window::~Window()
+{
+}
 
 LRESULT CALLBACK WndProc(HWND hwnd,UINT msg, WPARAM wparam, LPARAM lparam)
 {
-	//GetWindowLong(hwnd,)
 	switch (msg)
 	{
-	case WM_CREATE:
-	{
-		// Event fired when the window is created
-		// collected here..
-		Window* window = (Window*)((LPCREATESTRUCT)lparam)->lpCreateParams;
-		// .. and then stored for later lookup
-		SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)window);
-		window->onCreate();
-		break;
-	}
+		case WM_CREATE:
+		{
+			// Event fired when the window is created
+			Window* window = (Window*)((LPCREATESTRUCT)lparam)->lpCreateParams;
+			// .. and then stored for later lookup
+			SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)window);
+			window->onCreate();
+		} break;
 
-	case WM_DESTROY:
-	{
-		// Event fired when the window is destroyed
-		Window* window =(Window*) GetWindowLongPtr(hwnd, GWLP_USERDATA);
-		window->onDestroy();
-		::PostQuitMessage(0);
-		break;
-	}
+		case WM_DESTROY:
+		{
+			// Event fired when the window is destroyed
+			Window* window =(Window*) GetWindowLongPtr(hwnd, GWLP_USERDATA);
+			window->onDestroy();
+			::PostQuitMessage(0);
+		} break;
 
-	case WM_SIZE:
-	{
-		Window* window =(Window*) GetWindowLongPtr(hwnd, GWLP_USERDATA);
-		window->onResize(hwnd);
+		case WM_SIZE:
+		{
+			Window* window =(Window*) GetWindowLongPtr(hwnd, GWLP_USERDATA);
+			window->onResize(hwnd);
 
-	}break;
+		} break;
 
-
-	default:
-		return ::DefWindowProc(hwnd, msg, wparam, lparam);
+		default:
+		{
+			return ::DefWindowProc(hwnd, msg, wparam, lparam);
+		} break;
 	}
 
 	return NULL;
@@ -75,8 +72,6 @@ LRESULT CALLBACK WndProc(HWND hwnd,UINT msg, WPARAM wparam, LPARAM lparam)
 
 bool Window::init()
 {
-
-
 	//Setting up WNDCLASSEX object
 	WNDCLASSEX wc;
 	wc.cbClsExtra = NULL;
@@ -95,11 +90,8 @@ bool Window::init()
 	if (!::RegisterClassEx(&wc)) // If the registration of class will fail, the function will return false
 		return false;
 
-	/*if (!window)
-		window = this;*/
-
 	//Creation of the window
-	m_hwnd=::CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, "MyWindowClass", "DirectX Application", WS_OVERLAPPEDWINDOW & (~ WS_THICKFRAME), CW_USEDEFAULT, CW_USEDEFAULT, 1366, 768,
+	m_hwnd=::CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, "MyWindowClass", "Pong game", WS_OVERLAPPEDWINDOW & (~ WS_THICKFRAME), CW_USEDEFAULT, CW_USEDEFAULT, 1366, 768,
 		NULL, NULL, NULL, this);
 
 	//if the creation fail return false
@@ -117,7 +109,6 @@ bool Window::init()
 	m_is_run = true;
 
 
-
 	return true;
 }
 
@@ -131,17 +122,6 @@ bool Window::broadcast()
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
 	}
-
-	//unsigned int *pixel = (unsigned int*)buffer_memory;
-	//
-	// for(int y = 0; y < buffer_height; y++)
-	// {
-	// 	for(int x = 0; x < buffer_width; x++)
-	// 	{
-	// 		*pixel++ = x*y;
-	// 	}
-	// }
-	
 
 	// Render
 	StretchDIBits(hdc, 0, 0, buffer_width, buffer_height, 0, 0, buffer_width, buffer_height,
@@ -216,8 +196,4 @@ int Window::getWindowWidth()
 int Window::getWindowHeight()
 {
 	return buffer_height;
-}
-
-Window::~Window()
-{
 }

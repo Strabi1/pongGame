@@ -1,17 +1,18 @@
 
 #include "Render.h"
-#include <math.h>
 #include <stdio.h>
 
 
-#define MAX_LOGICAL_WIDTH	(160)
-#define MAX_LOGICAL_HEIGHT	(90)
-
 #define CONSTRAIN(x, min, max) (x < min ? min : x > max ? max : x)
+
 
 Render::Render(Window *wnd)
 {
 	window = wnd;
+}
+
+Render::~Render()
+{
 }
 
 void Render::DrawRechtangle(UINT32 x, UINT32 y, UINT32 h, UINT32 w, UINT32 color)
@@ -70,9 +71,5 @@ void Render::ClearWindow(UINT32 color)
 			*pixel++ = color;
 		}
 	}
-}
-
-Render::~Render()
-{
 }
  

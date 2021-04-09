@@ -41,10 +41,7 @@ int main()
 	while (app.isRun())
 	{
 		draw.ClearWindow(0xFF0000);
-		//draw.DrawRechtangle(500, 500, 8, 8, 0x00FF00);
-		//draw.DrawRechtangle(700, 700, 16, 16, 0x00FF00);
 		draw.MakeBorder(10, 0x00FF11);
-		draw.DrawRechtangle(100, 735, 8, 8, 0x0000FF);
 		app.broadcast();
 	}
 

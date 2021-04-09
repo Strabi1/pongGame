@@ -26,7 +26,6 @@ SOFTWARE.*/
 #include <Windows.h>
 
 
-
 class Window
 {
 public:

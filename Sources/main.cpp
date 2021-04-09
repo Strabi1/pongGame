@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
 #include "AppWindow.h"
-#include "Render.h"
+#include "Draw.h"
 #include <stdio.h>
 
 int main()
@@ -35,16 +35,16 @@ int main()
 		return -1;
 	}
 
-	Render render(&app);
+	Draw draw(&app);
 	
 	printf("Window->height: %d, Window->width: %d\n", app.getWindowHeight(), app.getWindowWidth());
 	while (app.isRun())
 	{
-		render.ClearWindow(0xFF0000);
-		//render.DrawRechtangle(500, 500, 8, 8, 0x00FF00);
-		//render.DrawRechtangle(700, 700, 16, 16, 0x00FF00);
-
-		render.DrawRechtangle(100, 735, 8, 8, 0x0000FF);
+		draw.ClearWindow(0xFF0000);
+		//draw.DrawRechtangle(500, 500, 8, 8, 0x00FF00);
+		//draw.DrawRechtangle(700, 700, 16, 16, 0x00FF00);
+		draw.MakeBorder(10, 0x00FF11);
+		draw.DrawRechtangle(100, 735, 8, 8, 0x0000FF);
 		app.broadcast();
 	}
 

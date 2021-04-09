@@ -49,8 +49,7 @@ int main()
 		draw.ClearWindow(0xFF0000);
 		draw.MakeBorder(10, 0x00FF11);
 
-
-		draw.DrawRechtangle(ball.pos.x, ball.pos.y, ball.size, ball.size, 0x00FF33);
+		draw.DrawRechtangle(ball.pos.x, ball.pos.y, ball.size, ball.size, ball.color);
 
 		app.broadcast();
 	}

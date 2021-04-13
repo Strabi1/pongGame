@@ -10,7 +10,7 @@ private:
 	std::vector<Observer*> observers;
 	
 protected:
-	void NotifyObsrver();
+	void NotifyObsrver(int argc, void** argv);
 
 public:
 	void AddObserver(Observer& observer);

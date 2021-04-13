@@ -6,6 +6,6 @@ class Observer
 private:
 	
 public:
-	virtual void ValueChanged(void* param) = 0;
+	virtual void ValueChanged(int argc, void** argv) = 0;
 };
 

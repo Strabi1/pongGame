@@ -19,10 +19,16 @@ void Draw::MakeBorder(UINT8 size, UINT32 color)
 	Render::DrawRechtangle2(0, window->getWindowHeight()-size+1, window->getWindowWidth(), window->getWindowHeight(), color);
 }
 
-void Draw::ValueChanged(void* param)
+void Draw::ValueChanged(int argc, void** argv)
 {
-	Rechtangle *rechtangle = (Rechtangle*)param;
+	if(argc < 2)
+	{
+		return;
+	}
 
-	Render::DrawRechtangle(rechtangle->old->pos.x, rechtangle->old->pos.y, rechtangle->old->height, rechtangle->old->width, background);
-	Render::DrawRechtangle(rechtangle->pos.x, rechtangle->pos.y, rechtangle->height, rechtangle->width, rechtangle->color);
+	Rechtangle *oldRecht = (Rechtangle*)argv[0];
+	Rechtangle *newRecht = (Rechtangle*)argv[1];
+
+	Render::DrawRechtangle(oldRecht->pos.x, oldRecht->pos.y, oldRecht->height, oldRecht->width, background);
+	Render::DrawRechtangle(newRecht->pos.x, newRecht->pos.y, newRecht->height, newRecht->width, newRecht->color);
 }

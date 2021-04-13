@@ -6,11 +6,11 @@ void Observable::AddObserver(Observer& observer)
 	observers.push_back(&observer);
 }
 
-void Observable::NotifyObsrver()
+void Observable::NotifyObsrver(int argc, void** argv)
 {
 	for (auto observer : observers)
 	{
-		observer->ValueChanged();
+		observer->ValueChanged(argc, argv);
 	}
 	
-}
+} 

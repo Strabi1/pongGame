@@ -13,6 +13,6 @@ public:
 	Draw(Window *wnd);
 	~Draw();
 	void MakeBorder(UINT8 size, UINT32 color);
-	virtual void ValueChanged(void* param) override;
+	virtual void ValueChanged(int argc, void** argv) override;
 };
 

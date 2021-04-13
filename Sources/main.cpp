@@ -26,6 +26,8 @@ SOFTWARE.*/
 #include "Draw.h"
 //#include "Game.h"
 //#include "Game/Ball.h"
+#include "Rechtangle.h"
+
 #include "Ball.h"
 #include "Racket.h"
 #include <stdio.h>
@@ -44,9 +46,12 @@ int main()
 	Ball ball(Pos(500,500));
 	Racket rackets[] = {Pos(100, 500), Pos(1000, 500)};
 
+	Rechtangle rechtangle(draw);
 
 	
 	printf("Window->height: %d, Window->width: %d\n", app.getWindowHeight(), app.getWindowWidth());
+	draw.DrawRechtangle(rechtangle.pos.x, rechtangle.pos.y, rechtangle.width, rechtangle.height, rechtangle.color);
+	
 	while (app.isRun())
 	{
 		draw.ClearWindow(0xFF0000);
@@ -56,6 +61,9 @@ int main()
 
 		draw.DrawRechtangle(rackets[0].pos.x, rackets[0].pos.y, rackets[0].height, rackets[0].width, rackets[0].color);
 		draw.DrawRechtangle(rackets[1].pos.x, rackets[1].pos.y, rackets[1].height, rackets[1].width, rackets[1].color);
+
+		//rechtangle.Resize(rechtangle.width + 5, rechtangle.height + 5);
+		Sleep(500);
 
 		app.broadcast();
 	}

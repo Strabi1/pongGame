@@ -112,15 +112,60 @@ bool Window::init()
 	return true;
 }
 
+typedef enum
+{
+	BTN_UP,
+	BTN_DOWN,
+}ButtonState;
+
+#define BUTTON_PRESSED		0x01
+#define BUTTON_RELEASED		0x02
+#include <stdio.h>
 bool Window::broadcast()
 {
 	MSG msg;
+	static UINT8 upKey = 0;
 
 	
 	while (::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE) > 0)
 	{
-		TranslateMessage(&msg);
-		DispatchMessage(&msg);
+		switch(msg.message)
+		{
+			case WM_KEYUP:
+			case WM_KEYDOWN:
+			{
+				UINT32 vk = (UINT32)msg.wParam;
+				ButtonState buttonState =  ((msg.lParam & (1 << 31)) == 0) ? BTN_DOWN : BTN_UP;
+				printf("Buttonstte: %d\n", buttonState);
+
+				switch(vk)
+				{
+					case VK_UP:
+					{
+						upKey = ((upKey & 0x01) << 1) | buttonState;
+						printf("VK_UP: %d\n", upKey);
+					} break;
+
+					default:
+					{		
+					}
+
+				}
+
+			} break;
+				
+			
+			default:
+			{
+				TranslateMessage(&msg);
+				DispatchMessage(&msg);
+			}
+		}
+
+		if(upKey == BUTTON_PRESSED)
+		{
+			printf("press\n");
+		}
 	}
 
 	// Render

@@ -24,6 +24,7 @@ SOFTWARE.*/
 
 #pragma once
 #include "Window.h"
+#include "KeySensor.h"
 
 
 
@@ -37,5 +38,8 @@ public:
 	virtual void onCreate() override;
 	virtual void onUpdate() override;
 	virtual void onDestroy() override;
+
+private:
+	KeySensor keySensor;
 };
 

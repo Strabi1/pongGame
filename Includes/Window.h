@@ -24,14 +24,16 @@ SOFTWARE.*/
 
 #pragma once
 #include <Windows.h>
+#include "Observable.h"
+#include "KeySensor.h"
 
 
-class Window
+class Window : public Observable
 {
 public:
 	void* buffer_memory = NULL;
 	
-	Window();
+	Window(KeySensor &keysensor);
 	//Initialize the window
 	bool init();
 	bool broadcast();

@@ -26,7 +26,7 @@ SOFTWARE.*/
 
 
 
-AppWindow::AppWindow() : Window(keySensor)
+AppWindow::AppWindow(Game &game) : Window(keySensor)
 {
 }
 

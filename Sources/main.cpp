@@ -30,11 +30,13 @@ SOFTWARE.*/
 
 #include "Ball.h"
 #include "Racket.h"
+#include "Game.h"
 #include <stdio.h>
 
 int main()
 {
-	AppWindow app;
+	Game game;
+	AppWindow app(game);
 
 	if (!app.init())
 	{
@@ -42,7 +44,6 @@ int main()
 	}
 
 	Draw draw(&app);
-	//Game game();
 	Ball ball(Pos(500,500));
 	Racket rackets[] = {Pos(100, 500), Pos(1000, 500)};
 

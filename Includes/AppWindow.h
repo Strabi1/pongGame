@@ -25,13 +25,14 @@ SOFTWARE.*/
 #pragma once
 #include "Window.h"
 #include "KeySensor.h"
+#include "Game.h"
 
 
 
 class AppWindow: public Window
 {
 public:
-	AppWindow();
+	AppWindow(Game &game);
 	~AppWindow();
 
 	// Inherited via Window

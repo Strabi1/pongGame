@@ -1,13 +1,18 @@
 
 #pragma once
 
+#include "KeySensor.h"
+
 class Game
 {
 private:
+	KeySensor *keySensor;
 
 public:
-	Game();
+	Game(KeySensor *key);
 	~Game();
+
+	void teszt();
 };
 
 

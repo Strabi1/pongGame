@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "KeySensor.h"
 #include "Window.h"
+#include "Game.h"
 
 #define BUTTON_PRESSED		0x01
 #define BUTTON_RELEASED		0x02
@@ -89,6 +90,7 @@ void KeySensor::broadcast(MSG *msg)
 		case VK_RIGHT:
 		{
 			executeKeyAction(vk, buttonState);
+			((Game*)game)->teszt();
 			/*
 			upKey = ((upKey & 0x01) << 1) | buttonState;
 			printf("VK_UP: %d\n", upKey);

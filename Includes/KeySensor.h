@@ -3,6 +3,7 @@
 
 #include <windows.h>
 #include "Observer.h"
+//#include "Game.h"
 
 class KeySensor
 {
@@ -13,6 +14,8 @@ public:
 	~KeySensor();
 
 	void broadcast(MSG *msg);
+
+	void *game;
 };
 
 

@@ -37,7 +37,8 @@ SOFTWARE.*/
 
 int main()
 {
-	Game game;
+	KeySensor keySensor;
+	Game game(&keySensor);
 	AppWindow app(game);
 
 	if (!app.init())
@@ -50,7 +51,6 @@ int main()
 	Racket rackets[] = {Pos(100, 500), Pos(1000, 500)};
 
 	Rechtangle rechtangle(draw);
-	KeySensor keySensor;
 	MessageHandler messageHnd(&app, &keySensor);
 
 	rechtangle.pos.x = 456;

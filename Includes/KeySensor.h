@@ -1,9 +1,10 @@
 
 #pragma once
 
+#include <windows.h>
 #include "Observer.h"
 
-class KeySensor : public Observer
+class KeySensor
 {
 private:
 	
@@ -11,7 +12,7 @@ public:
 	KeySensor();
 	~KeySensor();
 
-	virtual void ValueChanged(int argc, void** argv) override;
+	void broadcast(MSG *msg);
 };
 
 

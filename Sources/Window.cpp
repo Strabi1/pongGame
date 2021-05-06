@@ -26,7 +26,7 @@ SOFTWARE.*/
 
 Window::Window(KeySensor &keySensor)
 {	
-	this->AddObserver(keySensor);
+	//this->AddObserver(keySensor);
 }
 
 Window::~Window()
@@ -116,32 +116,14 @@ bool Window::init()
 
 
 #include <stdio.h>
-bool Window::broadcast()
+bool Window::broadcast(MSG *msg)
 {
-	MSG msg;
-	void *array[0];
-	
 
-	
-	while (::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE) > 0)
-	{
-		switch(msg.message)
-		{
-			case WM_KEYUP:
-			case WM_KEYDOWN:
-			{
-				array[0] = &msg;
-				NotifyObsrver(1, array);
-			} break;
-				
-			
-			default:
-			{
-				TranslateMessage(&msg);
-				DispatchMessage(&msg);
-			}
-		}
-	}
+	if(!msg)
+		return false;
+
+	TranslateMessage(msg);
+	DispatchMessage(msg);
 
 	// Render
 	StretchDIBits(hdc, 0, 0, buffer_width, buffer_height, 0, 0, buffer_width, buffer_height,

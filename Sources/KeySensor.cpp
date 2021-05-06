@@ -73,17 +73,10 @@ void executeKeyAction(UINT8 key, ButtonState buttonState)
 	}
 }
 
-void KeySensor::ValueChanged(int argc, void** argv)
+void KeySensor::broadcast(MSG *msg)
 {
 	static UINT8 upKey = 0;
 	
-	if(argc < 1)
-		return;
-
-	MSG *msg;
-
-	msg = (MSG*)argv[0];
-
 	UINT32 vk = (UINT32)msg->wParam;
 	ButtonState buttonState =  ((msg->lParam & (1 << 31)) == 0) ? BTN_DOWN : BTN_UP;
 	printf("Buttonstte: %d\n", buttonState);

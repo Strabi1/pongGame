@@ -28,9 +28,11 @@ SOFTWARE.*/
 //#include "Game/Ball.h"
 #include "Rechtangle.h"
 
+#include "MessageHandler.h"
 #include "Ball.h"
 #include "Racket.h"
 #include "Game.h"
+
 #include <stdio.h>
 
 int main()
@@ -48,6 +50,8 @@ int main()
 	Racket rackets[] = {Pos(100, 500), Pos(1000, 500)};
 
 	Rechtangle rechtangle(draw);
+	KeySensor keySensor;
+	MessageHandler messageHnd(&app, &keySensor);
 
 	rechtangle.pos.x = 456;
 
@@ -75,7 +79,7 @@ int main()
 		rechtangle.Resize(rechtangle.width + 5, rechtangle.height + 5);
 		Sleep(500);
 
-		app.broadcast();
+		messageHnd.PollMessages();		
 	}
 
 

@@ -36,7 +36,7 @@ public:
 	Window(KeySensor &keysensor);
 	//Initialize the window
 	bool init();
-	bool broadcast();
+	bool broadcast(MSG *msg);
 	//Release the window
 	bool release();
 	bool isRun();

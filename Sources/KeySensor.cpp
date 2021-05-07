@@ -48,16 +48,15 @@ void f4(void)
 	printf("---- %s\n", __FUNCTION__);
 }
 
-KeyAction keyAction[] = 
-{
-	{VK_UP,		f1,		0},
-	{VK_DOWN,	f2,		0},
-	{VK_LEFT, 	f3,		0},
-	{VK_RIGHT,	f4,		0}
-};
+
+#define VK_W_KEY	0X57
+#define VK_S_KEY	0X53
+
+
 
 void executeKeyAction(UINT8 key, ButtonState buttonState)
 {
+	/*
 	for (auto &&i : keyAction)
 	{
 		if(i.key == key)
@@ -72,10 +71,22 @@ void executeKeyAction(UINT8 key, ButtonState buttonState)
 			return;
 		}
 	}
+	*/
 }
 
 void KeySensor::broadcast(MSG *msg)
 {
+
+
+KeyAction keyAction[2] ;//= 
+/*/{
+	{VK_UP,		((Game*)game)->teszt, 0},
+	{VK_UP,		((Game*)game)->teszt, 0}
+};*/
+
+
+	keyAction[0].function = (((Game*)game)->teszt);
+
 	static UINT8 upKey = 0;
 	
 	UINT32 vk = (UINT32)msg->wParam;

@@ -6,6 +6,7 @@
 class Racket
 {
 private:
+	const UINT32 defaultMove = 5; 
 	
 public:
 	UINT8 width = 15;
@@ -18,5 +19,10 @@ public:
 	Racket(Pos pos, UINT16 height);
 	Racket(Pos pos, UINT16 height, UINT8 width, UINT32 color);
 	~Racket();
+
+	void MoveUp(UINT32 step);
+	void MoveDown(UINT32 step);
+	void MoveUp();
+	void MoveDown();
 };
 

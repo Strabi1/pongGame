@@ -8,7 +8,28 @@ Racket::Racket(Pos pos, UINT16 height) : pos{pos}, height{height} {}
 Racket::Racket(Pos pos, UINT16 height, UINT8 width, UINT32 color) : pos{pos}, height{height}, width{width}, color{color} {}
 
 
-
 Racket::~Racket()
 {
+}
+
+void Racket::MoveUp(UINT32 step)
+{
+	pos.y += step;
+	// TODO: redraw request
+}
+
+void Racket::MoveDown(UINT32 step)
+{
+	pos.y -= step;
+	// TODO: redraw request
+}
+
+void Racket::MoveUp()
+{
+	Racket::MoveUp(defaultMove);
+}
+
+void Racket::MoveDown()
+{
+	Racket::MoveDown(defaultMove);
 }

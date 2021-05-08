@@ -1,4 +1,5 @@
 
+#include <stdio.h>
 #include "Racket.h"
 
 
@@ -16,12 +17,14 @@ void Racket::MoveUp(UINT32 step)
 {
 	pos.y += step;
 	// TODO: redraw request
+	printf("MoveUp\n");
 }
 
 void Racket::MoveDown(UINT32 step)
 {
 	pos.y -= step;
 	// TODO: redraw request
+	printf("MoveDown\n");
 }
 
 void Racket::MoveUp()

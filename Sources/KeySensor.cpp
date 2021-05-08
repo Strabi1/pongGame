@@ -7,6 +7,9 @@
 #define BUTTON_PRESSED		0x01
 #define BUTTON_RELEASED		0x02
 
+#define VK_W_KEY	0X57
+#define VK_S_KEY	0X53
+
 typedef enum
 {
 	BTN_UP,
@@ -22,71 +25,9 @@ KeySensor::~KeySensor()
 {
 }
 
-typedef void KeyFunciton(void);
-
-typedef struct
-{
-	UINT8 key;
-	KeyFunciton *function;
-	UINT8 state;
-}KeyAction;
-
-void f1(void)
-{
-	printf("---- %s\n", __FUNCTION__);
-}
-void f2(void)
-{
-	printf("---- %s\n", __FUNCTION__);
-}
-void f3(void)
-{
-	printf("---- %s\n", __FUNCTION__);
-}
-void f4(void)
-{
-	printf("---- %s\n", __FUNCTION__);
-}
-
-
-#define VK_W_KEY	0X57
-#define VK_S_KEY	0X53
-
-
-
-void executeKeyAction(UINT8 key, ButtonState buttonState)
-{
-	/*
-	for (auto &&i : keyAction)
-	{
-		if(i.key == key)
-		{
-			i.state = ((i.state & 0x01) << 1) | buttonState;
-
-			if(i.state == BUTTON_PRESSED)
-			{
-				i.function();
-			}
-
-			return;
-		}
-	}
-	*/
-}
 
 void KeySensor::broadcast(MSG *msg)
 {
-
-
-KeyAction keyAction[2] ;//= 
-/*/{
-	{VK_UP,		((Game*)game)->teszt, 0},
-	{VK_UP,		((Game*)game)->teszt, 0}
-};*/
-
-
-	keyAction[0].function = (((Game*)game)->teszt);
-
 	static UINT8 upKey = 0;
 	
 	UINT32 vk = (UINT32)msg->wParam;
@@ -96,21 +37,25 @@ KeyAction keyAction[2] ;//=
 	switch(vk)
 	{
 		case VK_UP:
-		case VK_DOWN:
-		case VK_LEFT:
-		case VK_RIGHT:
 		{
-			executeKeyAction(vk, buttonState);
-			((Game*)game)->teszt();
-			/*
-			upKey = ((upKey & 0x01) << 1) | buttonState;
-			printf("VK_UP: %d\n", upKey);
+			((Game*)game)->rackets[0].MoveUp();
+		} break;
 
-			if(upKey == BUTTON_PRESSED)
-			{
-				printf("press\n");
-			}	
-			*/
+		case VK_DOWN:
+		{
+			((Game*)game)->rackets[0].MoveDown();
+
+		} break;
+
+		case VK_W_KEY:
+		{
+			((Game*)game)->rackets[1].MoveUp();
+
+		} break;
+		
+		case VK_S_KEY:
+		{
+			((Game*)game)->rackets[0].MoveDown();
 		} break;
 
 		default:

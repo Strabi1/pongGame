@@ -24,9 +24,8 @@ SOFTWARE.*/
 
 #include "Window.h"
 
-Window::Window(KeySensor &keySensor)
+Window::Window()
 {	
-	//this->AddObserver(keySensor);
 }
 
 Window::~Window()

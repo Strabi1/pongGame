@@ -33,7 +33,7 @@ class Window : public Observable
 public:
 	void* buffer_memory = NULL;
 	
-	Window(KeySensor &keysensor);
+	Window();
 	//Initialize the window
 	bool init();
 	bool broadcast(MSG *msg);

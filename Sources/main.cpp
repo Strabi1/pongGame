@@ -39,7 +39,7 @@ int main()
 {
 	KeySensor keySensor;
 	Game game(&keySensor);
-	AppWindow app(game);
+	AppWindow app;
 
 	if (!app.init())
 	{

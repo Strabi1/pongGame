@@ -32,7 +32,7 @@ SOFTWARE.*/
 class AppWindow: public Window
 {
 public:
-	AppWindow(Game &game);
+	AppWindow();
 	~AppWindow();
 
 	// Inherited via Window
@@ -41,6 +41,6 @@ public:
 	virtual void onDestroy() override;
 
 private:
-	KeySensor keySensor;
+
 };
 

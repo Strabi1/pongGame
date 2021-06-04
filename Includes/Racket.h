@@ -16,7 +16,7 @@ public:
 	UINT8 width = 15;
 	UINT16 height = 70;
 	Pos pos;
-	UINT32 color = 0x00FFFF;
+	UINT32 color = 0xFFFFFF;
 
 	Racket(Draw* draw);
 	Racket(Draw* draw, Pos pos);

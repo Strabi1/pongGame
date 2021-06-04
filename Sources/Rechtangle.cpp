@@ -13,9 +13,13 @@ Rechtangle::Rechtangle(Draw &draw)
 	this->AddObserver(draw);
 }
 
-Rechtangle::Rechtangle(Draw *draw)
+Rechtangle::Rechtangle(Draw *draw) : Rechtangle{draw, Pos{100, 100}, 0x0055FF} {}
+
+Rechtangle::Rechtangle(Draw *draw, Pos pos, UINT32 color) : Rechtangle{draw, pos, 70, 70, color} {}
+
+Rechtangle::Rechtangle(Draw *draw, Pos pos, UINT16 w, UINT16 h, UINT32 color) : pos{pos}, width{w}, height{h}, color{color}
 {
-	this->AddObserver(*draw);	
+	this->AddObserver(*draw);
 }
 
 Rechtangle::~Rechtangle()

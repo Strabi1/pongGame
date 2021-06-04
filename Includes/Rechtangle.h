@@ -20,6 +20,8 @@ public:
 
 	Rechtangle(Draw &draw);
 	Rechtangle(Draw *draw);
+	Rechtangle(Draw *draw, Pos pos, UINT32 color);
+	Rechtangle(Draw *draw, Pos pos, UINT16 w, UINT16 h, UINT32 color);
 	~Rechtangle();
 
 	Rechtangle* Clone();

@@ -3,7 +3,6 @@
 
 #include <windows.h>
 #include "Observer.h"
-//#include "Game.h"
 
 class KeySensor
 {

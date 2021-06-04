@@ -38,20 +38,19 @@ SOFTWARE.*/
 int main()
 {
 	KeySensor keySensor;
-	Game game(&keySensor);
 	AppWindow app;
 
 	if (!app.init())
-	{
 		return -1;
-	}
 
 	Draw draw(&app);
 	Ball ball(Pos(500,500));
-	Racket rackets[] = {Pos(100, 500), Pos(1000, 500)};
+	//Racket rackets[] = {Pos(100, 500), Pos(1000, 500)};
 
 	Rechtangle rechtangle(draw);
 	MessageHandler messageHnd(&app, &keySensor);
+
+	Game game(&keySensor, &draw);
 
 	rechtangle.pos.x = 456;
 
@@ -73,8 +72,8 @@ int main()
 
 		draw.DrawRechtangle(ball.pos.x, ball.pos.y, ball.size, ball.size, ball.color);
 
-		draw.DrawRechtangle(rackets[0].pos.x, rackets[0].pos.y, rackets[0].height, rackets[0].width, rackets[0].color);
-		draw.DrawRechtangle(rackets[1].pos.x, rackets[1].pos.y, rackets[1].height, rackets[1].width, rackets[1].color);
+		//draw.DrawRechtangle(rackets[0].pos.x, rackets[0].pos.y, rackets[0].height, rackets[0].width, rackets[0].color);
+		//draw.DrawRechtangle(rackets[1].pos.x, rackets[1].pos.y, rackets[1].height, rackets[1].width, rackets[1].color);
 
 		rechtangle.Resize(rechtangle.width + 5, rechtangle.height + 5);
 		Sleep(500);

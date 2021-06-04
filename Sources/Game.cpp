@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include "Game.h"
 
-Game::Game(KeySensor *key) : keySensor{key} {
+Game::Game(KeySensor *key, Draw *draw) : keySensor{key}, draw{draw}
+{
 	keySensor->game = (void*)this;
 }
 

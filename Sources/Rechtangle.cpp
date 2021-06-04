@@ -13,12 +13,18 @@ Rechtangle::Rechtangle(Draw &draw)
 	this->AddObserver(draw);
 }
 
+Rechtangle::Rechtangle(Draw *draw)
+{
+	this->AddObserver(*draw);	
+}
+
 Rechtangle::~Rechtangle()
 {
 }
 
 void Rechtangle::Move(Pos newPos)
 {
+	printf("Move\n");
 	Rechtangle old(*this);
 	_Move(&old, newPos);
 	_Notify(&old);

@@ -19,6 +19,7 @@ public:
 	UINT32 color = 0x0055FF;
 
 	Rechtangle(Draw &draw);
+	Rechtangle(Draw *draw);
 	~Rechtangle();
 
 	Rechtangle* Clone();

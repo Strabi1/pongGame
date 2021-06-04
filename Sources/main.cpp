@@ -63,19 +63,22 @@ int main()
 
 	
 	printf("Window->height: %d, Window->width: %d\n", app.getWindowHeight(), app.getWindowWidth());
+	draw.ClearWindow(0xFF0000);
 	draw.DrawRechtangle(rechtangle.pos.x, rechtangle.pos.y, rechtangle.width, rechtangle.height, rechtangle.color);
+	draw.MakeBorder(10, 0x00FF11);
+	draw.DrawRechtangle(ball.pos.x, ball.pos.y, ball.size, ball.size, ball.color);
 	
 	while (app.isRun())
 	{
-		draw.ClearWindow(0xFF0000);
-		draw.MakeBorder(10, 0x00FF11);
+	//	draw.ClearWindow(0xFF0000);
+	//	draw.MakeBorder(10, 0x00FF11);
 
-		draw.DrawRechtangle(ball.pos.x, ball.pos.y, ball.size, ball.size, ball.color);
+	//	draw.DrawRechtangle(ball.pos.x, ball.pos.y, ball.size, ball.size, ball.color);
 
 		//draw.DrawRechtangle(rackets[0].pos.x, rackets[0].pos.y, rackets[0].height, rackets[0].width, rackets[0].color);
 		//draw.DrawRechtangle(rackets[1].pos.x, rackets[1].pos.y, rackets[1].height, rackets[1].width, rackets[1].color);
 
-		rechtangle.Resize(rechtangle.width + 5, rechtangle.height + 5);
+		//rechtangle.Resize(rechtangle.width + 5, rechtangle.height + 5);
 		Sleep(500);
 
 		messageHnd.PollMessages();		

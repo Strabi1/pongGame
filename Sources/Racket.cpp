@@ -8,6 +8,7 @@ Racket::Racket(Draw* draw, Pos pos) : draw{draw}, image{draw, pos, 15, 70, 0xFFF
 Racket::Racket(Draw* draw, Pos pos, UINT16 height) : draw{draw}, image{draw}, pos{pos}, height{height} {}
 Racket::Racket(Draw* draw, Pos pos, UINT16 height, UINT8 width, UINT32 color) : draw{draw}, image{draw}, pos{pos}, height{height}, width{width}, color{color} {}
 
+
 Racket::~Racket()
 {
 }

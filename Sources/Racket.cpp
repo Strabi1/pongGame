@@ -13,6 +13,12 @@ Racket::~Racket()
 {
 }
 
+void Racket::Init()
+{
+	printf("Init---\n");
+	this->image._Notify(NULL);
+}
+
 void Racket::MoveUp(UINT32 step)
 {
 	pos.y += step;

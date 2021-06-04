@@ -11,7 +11,6 @@ private:
 
 	void _Move(Rechtangle *old, Pos newPos);
 	void _Resize(Rechtangle *old, UINT16 w, UINT16 h);
-	void _Notify(Rechtangle *old);
 
 public:
 	Pos pos{100,100};
@@ -29,4 +28,6 @@ public:
 	void Move(Pos newPos);
 	void Resize(UINT16 w, UINT16 h);
 	void MoveAndResize(Pos newPos, UINT16 w, UINT16 h);
+	
+	void _Notify(Rechtangle *old);
 };

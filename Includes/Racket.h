@@ -23,6 +23,7 @@ public:
 	Racket(Draw* draw, Pos pos, UINT16 height);
 	Racket(Draw* draw, Pos pos, UINT16 height, UINT8 width, UINT32 color);
 	~Racket();
+	void Init();
 
 	void MoveUp(UINT32 step);
 	void MoveDown(UINT32 step);

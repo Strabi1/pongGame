@@ -27,7 +27,9 @@ int main()
 	draw.ClearWindow(0xFF0000);
 	draw.MakeBorder(10, 0x00FF11);
 	draw.DrawRechtangle(ball.pos.x, ball.pos.y, ball.size, ball.size, ball.color);
-	
+
+	game.rackets[0].Init();
+	game.rackets[1].Init();
 	while (app.isRun())
 	{
 		Sleep(100);

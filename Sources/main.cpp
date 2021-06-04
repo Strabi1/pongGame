@@ -79,7 +79,7 @@ int main()
 		//draw.DrawRechtangle(rackets[1].pos.x, rackets[1].pos.y, rackets[1].height, rackets[1].width, rackets[1].color);
 
 		//rechtangle.Resize(rechtangle.width + 5, rechtangle.height + 5);
-		Sleep(500);
+		Sleep(100);
 
 		messageHnd.PollMessages();		
 	}

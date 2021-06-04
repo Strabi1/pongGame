@@ -29,6 +29,9 @@ void Draw::ValueChanged(int argc, void** argv)
 	Rechtangle *oldRecht = (Rechtangle*)argv[0];
 	Rechtangle *newRecht = (Rechtangle*)argv[1];
 
+	printf("vc 1\n");
 	Render::DrawRechtangle(oldRecht->pos.x, oldRecht->pos.y, oldRecht->height, oldRecht->width, background);
+	printf("vc 2\n");
 	Render::DrawRechtangle(newRecht->pos.x, newRecht->pos.y, newRecht->height, newRecht->width, newRecht->color);
+	printf("vc 3\n");
 }

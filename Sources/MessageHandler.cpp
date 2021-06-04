@@ -16,7 +16,7 @@ void MessageHandler::PollMessages()
 	{
 		switch(msg.message)
 		{
-			case WM_KEYUP:
+			//case WM_KEYUP:
 			case WM_KEYDOWN:
 			{
 				keySensor->broadcast(&msg);

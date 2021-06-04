@@ -55,7 +55,7 @@ void KeySensor::broadcast(MSG *msg)
 		
 		case VK_S_KEY:
 		{
-			((Game*)game)->rackets[0].MoveDown();
+			((Game*)game)->rackets[1].MoveDown();
 		} break;
 
 		default:

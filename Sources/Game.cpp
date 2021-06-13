@@ -11,7 +11,11 @@ Game::~Game()
 {
 }
 
-void Game::teszt()
+void Game::Init()
 {
-	printf("dfdfd\n");
+	draw->ClearWindow(0xFF0000);
+	draw->MakeBorder(10, 0x00FF11);
+	rackets[0].Init();
+	rackets[1].Init();
+	ball.Init();
 }

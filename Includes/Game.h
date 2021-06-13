@@ -18,7 +18,7 @@ public:
 
 	Racket rackets[2] = {{draw, Pos(100, 500)}, {draw, Pos(1000, 500)}};
 	Ball ball = Ball(draw, Pos(550, 500));
-	void teszt();
+	void Init();
 };
 
 

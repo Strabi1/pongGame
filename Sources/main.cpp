@@ -29,6 +29,7 @@ int main()
 	while (app.isRun())
 	{
 		Sleep(100);
+		game.ball.Move(100);
 		messageHnd.PollMessages();		
 	}
 

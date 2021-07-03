@@ -15,6 +15,8 @@ public:
 	UINT8 size = 8;
 	Pos pos;
 	UINT32 color = 0xFFFFFF;
+	UINT16 speedAbs = 100;		// pixel / s
+	float speedDir = 0.0;		// fokban merve
 
 	Ball(Draw* draw);
 	Ball(Draw* draw, Pos pos);
@@ -25,5 +27,7 @@ public:
 	~Ball();
 
 	void Init();
+	void Move(UINT16 time_ms);
+
 };
 
